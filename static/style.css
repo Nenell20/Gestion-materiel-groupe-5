@@ -26,6 +26,10 @@ main {
     padding: 0 20px;
 }
 
+main h2 {
+    color: #004458;
+}
+
 .liste {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -38,6 +42,14 @@ main {
     padding: 20px;
     border-radius: 8px;
     border: 1px solid #ddd;
+}
+
+.carte h3 {
+    color: #004458;
+}
+
+.icone {
+    font-size: 2em;
 }
 
 .carte a {
