@@ -14,19 +14,31 @@
 <div class="liste">
 
     {% for element in donnees %}
-
     <article class="carte">
 
-        <h3>{{ element.reference }}</h3>
+        <span class="icone">
+            {% if element.progression == "Programmée" %}
+                📅
+            {% elif element.progression == "En cours" %}
+                🔧
+            {% else %}
+                ✅
+            {% endif %}
+        </span>
 
-        <p>{{ element.auteur }}</p>
+        <h3>{{ element.codeOperation }}</h3>
+
+        <p>{{ element.cibleTechnique }}</p>
+
+        <p>{{ element.responsable }}</p>
+
+        <p>{{ element.progression }}</p>
 
         <a href="{{ url_for('detail', id=element.id) }}">
             Voir le détail
         </a>
 
     </article>
-
     {% endfor %}
 
 </div>

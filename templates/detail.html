@@ -4,17 +4,39 @@
 
 {% block content %}
 
-<h2>{{ element.reference }}</h2>
+<h2>{{ element.codeOperation }}</h2>
 
 <div class="detail">
 
     <p>
-        {{ element.titre }}
+        <strong>Équipement concerné :</strong>
+        {{ element.cibleTechnique }}
     </p>
 
     <p>
-        <strong>Disponibilité :</strong>
-        {{ element.disponibilite }}
+        <strong>Nature de l'action :</strong>
+        {{ element.natureAction }}
+    </p>
+
+    <p>
+        <strong>Responsable :</strong>
+        {{ element.responsable }}
+    </p>
+
+    <p>
+        <strong>Progression :</strong>
+        {% if element.progression == "Programmée" %}
+            📅 {{ element.progression }}
+        {% elif element.progression == "En cours" %}
+            🔧 {{ element.progression }}
+        {% else %}
+            ✅ {{ element.progression }}
+        {% endif %}
+    </p>
+
+    <p>
+        <strong>Rapport :</strong>
+        {{ element.rapportOperation }}
     </p>
 
 </div>
