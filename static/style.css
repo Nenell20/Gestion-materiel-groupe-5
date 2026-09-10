@@ -1,13 +1,13 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background-color: #f4f4f4;
+    background-color: #f1efe9;
     color: #333;
 }
 
 header {
-    background-color: #004458;
-    color: white;
+    background-color: #2f3b3a;
+    color: #f1efe9;
     padding: 20px;
 }
 
@@ -16,7 +16,7 @@ header h1 {
 }
 
 nav a {
-    color: white;
+    color: #f1efe9;
     text-decoration: none;
 }
 
@@ -27,7 +27,13 @@ main {
 }
 
 main h2 {
-    color: #004458;
+    color: #2f3b3a;
+    text-align: center;
+    font-size: 2em;
+}
+
+main > p {
+    text-align: center;
 }
 
 .liste {
@@ -38,14 +44,14 @@ main h2 {
 
 .carte,
 .detail {
-    background-color: white;
+    background-color: #fdfcf9;
     padding: 20px;
     border-radius: 8px;
-    border: 1px solid #ddd;
+    border: 1px solid #ddd8ce;
 }
 
 .carte h3 {
-    color: #004458;
+    color: #2f3b3a;
 }
 
 .icone {
@@ -55,13 +61,22 @@ main h2 {
 .carte a {
     display: inline-block;
     margin-top: 10px;
-    color: #2563eb;
+    padding: 8px 14px;
+    color: #2f3b3a;
+    background-color: #ece7dc;
+    border: 1px solid #ddd8ce;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.carte a::after {
+    content: " →";
 }
 
 footer {
     margin-top: 40px;
     padding: 20px;
     text-align: center;
-    background-color: #004458;
-    color: white;
+    background-color: #2f3b3a;
+    color: #f1efe9;
 }
