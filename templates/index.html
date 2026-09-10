@@ -18,21 +18,21 @@
 
         <span class="icone">
             {% if element.progression == "Programmée" %}
-                
+                📅
             {% elif element.progression == "En cours" %}
                 🔧
             {% else %}
-                
+                ✅
             {% endif %}
-        </span>
+                </span>
 
         <h3>{{ element.codeOperation }}</h3>
 
-        <p>{{ element.cibleTechnique }}</p>
+        <p><strong>Modèle :</strong> {{ element.cibleTechnique }}</p>
 
-        <p>{{ element.responsable }}</p>
+        <p><strong>Technicien :</strong> {{ element.responsable }}</p>
 
-        <p>{{ element.progression }}</p>
+        <p><strong>État :</strong> {{ element.progression }}</p>
 
         <a href="{{ url_for('detail', id=element.id) }}">
             Voir le détail
