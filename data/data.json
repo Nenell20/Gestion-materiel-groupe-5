@@ -1,0 +1,91 @@
+[
+{
+"id": 1,
+"codeOperation": "PM-701",
+"cibleTechnique": "SRV-FIC-01",
+"natureAction": "Préventive",
+"progression": "Achevée",
+"responsable": "Thomas",
+"rapportOperation": "Contrôle des journaux et vérification des sauvegardes"
+},
+{
+"id": 2,"codeOperation": "PM-702",
+"cibleTechnique": "SW-ACC-04",
+"natureAction": "Corrective",
+"progression": "En cours",
+"responsable": "Laura",
+"rapportOperation": "Remplacement d'un module défectueux"
+},
+{
+"id": 3,
+"codeOperation": "PM-703",
+"cibleTechnique": "POSTE-118",
+"natureAction": "Préventive",
+"progression": "Programmée",
+"responsable": "Thomas",
+"rapportOperation": "Nettoyage interne et contrôle du stockage"
+},
+{
+"id": 4,
+"codeOperation": "PM-704",
+"cibleTechnique": "RTR-EDGE-01",
+"natureAction": "Corrective",
+"progression": "Achevée",
+"responsable": "Laura",
+"rapportOperation": "Remplacement d'une alimentation"
+},
+{
+"id": 5,
+"codeOperation": "PM-705",
+"cibleTechnique": "AP-ETG2-03",
+"natureAction": "Préventive",
+"progression": "Programmée",
+"responsable": "Thomas",
+"rapportOperation": "Contrôle de la configuration radio"
+},
+{
+"id": 6,
+"codeOperation": "PM-706",
+"cibleTechnique": "POSTE-204",
+"natureAction": "Corrective",
+"progression": "En cours",
+"responsable": "Laura",
+"rapportOperation": "Remplacement du support de stockage"
+},
+{
+"id": 7,
+"codeOperation": "PM-707",
+"cibleTechnique": "SW-CORE-01",
+"natureAction": "Préventive",
+"progression": "Achevée",
+"responsable": "Thomas",
+"rapportOperation": "Sauvegarde de configuration et inspection générale"
+},
+{
+    "id": 8,
+"codeOperation": "PM-708",
+"cibleTechnique": "SERVEUR-BDD-01",
+"natureAction": "Corrective",
+"progression": "Programmée",
+"responsable": "Laura",
+"rapportOperation": "Remplacement d'un ventilateur"
+},
+{
+"id": 9,
+"codeOperation": "PM-709",
+"cibleTechnique": "AP-ETG1-02",
+"natureAction": "Préventive",
+"progression": "Achevée",
+"responsable": "Thomas",
+"rapportOperation": "Vérification de la couverture sans fil"
+},
+{
+"id": 10,
+"codeOperation": "PM-710",
+"cibleTechnique": "POSTE-315",
+"natureAction": "Corrective",
+"progression": "Programmée",
+"responsable": "Laura",
+"rapportOperation": "Remplacement d'un ventilateur bruyant"
+}
+]
