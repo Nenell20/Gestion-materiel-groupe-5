@@ -4,9 +4,66 @@
 
 {% block content %}
 
-<h2>Liste des éléments</h2> <p> Cette page présente les informations disponibles dans l'application. </p> <div class="liste">
+<h2>Liste des éléments</h2>
+
+<p>
+    Cette page présente les informations disponibles
+    dans l'application.
+</p>
+
+<!-- Barre de filtres simplifiée -->
+<div class="barre-filtres">
+
+    <div class="filtre">
+        <label for="filtre-nature">Nature</label>
+        <select id="filtre-nature">
+            <option value="">Toutes</option>
+            {% for valeur in donnees | map(attribute="natureAction") | unique | sort %}
+            <option value="{{ valeur }}">{{ valeur }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="filtre">
+        <label for="filtre-progression">Progression</label>
+        <select id="filtre-progression">
+            <option value="">Toutes</option>
+            {% for valeur in donnees | map(attribute="progression") | unique | sort %}
+            <option value="{{ valeur }}">{{ valeur }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="filtre">
+        <label for="filtre-cible">Équipement</label>
+        <select id="filtre-cible">
+            <option value="">Tous</option>
+            {% for valeur in donnees | map(attribute="cibleTechnique") | unique | sort %}
+            <option value="{{ valeur }}">{{ valeur }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="filtre">
+        <label for="filtre-responsable">Technicien</label>
+        <select id="filtre-responsable">
+            <option value="">Tous</option>
+            {% for valeur in donnees | map(attribute="responsable") | unique | sort %}
+            <option value="{{ valeur }}">{{ valeur }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+</div>
+
+<!-- Liste des cartes -->
+<div class="liste">
 {% for element in donnees %}
-<article class="carte">
+<article class="carte"
+    data-nature="{{ element.natureAction }}"
+    data-progression="{{ element.progression }}"
+    data-cible="{{ element.cibleTechnique }}"
+    data-responsable="{{ element.responsable }}">
 
     <span class="icone">
         {% if element.progression == "Programmée" %}
@@ -65,5 +122,46 @@
 {% endfor %}
 
 </div>
+
+<p id="aucun-resultat" style="display: none;">Aucun élément ne correspond à ces filtres.</p>
+
+<!-- Script de filtrage propre -->
+<script>
+    const filtreNature = document.getElementById('filtre-nature');
+    const filtreProgression = document.getElementById('filtre-progression');
+    const filtreCible = document.getElementById('filtre-cible');
+    const filtreResponsable = document.getElementById('filtre-responsable');
+    const cartes = document.querySelectorAll('.carte');
+    const aucunResultat = document.getElementById('aucun-resultat');
+
+    function appliquerFiltres() {
+        const nature = filtreNature.value;
+        const progression = filtreProgression.value;
+        const cible = filtreCible.value;
+        const responsable = filtreResponsable.value;
+
+        let resultatsVisibles = 0;
+
+        cartes.forEach(function (carte) {
+            const correspond =
+                (nature === "" || carte.dataset.nature === nature) &&
+                (progression === "" || carte.dataset.progression === progression) &&
+                (cible === "" || carte.dataset.cible === cible) &&
+                (responsable === "" || carte.dataset.responsable === responsable);
+
+            carte.style.display = correspond ? "" : "none";
+            if (correspond) {
+                resultatsVisibles++;
+            }
+        });
+
+        aucunResultat.style.display = resultatsVisibles === 0 ? "block" : "none";
+    }
+
+    filtreNature.addEventListener('change', appliquerFiltres);
+    filtreProgression.addEventListener('change', appliquerFiltres);
+    filtreCible.addEventListener('change', appliquerFiltres);
+    filtreResponsable.addEventListener('change', appliquerFiltres);
+</script>
 
 {% endblock %}

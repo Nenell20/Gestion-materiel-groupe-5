@@ -84,42 +84,109 @@ footer {
 /* Barre de progression */
 
 .progression {
-margin-top: 15px;
+    margin-top: 15px;
 }
 
 .progression-info {
-display: flex;
-justify-content: space-between;
-margin-bottom: 6px;
-font-size: 14px;
-font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .progression-barre {
-width: 100%;
-height: 12px;
-background-color: #e5e7eb;
-border-radius: 10px;
-overflow: hidden;
+    width: 100%;
+    height: 12px;
+    background-color: #e5e7eb;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .progression-remplissage {
-height: 100%;
-border-radius: 10px;
-transition: width 0.5s ease;
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.5s ease;
 }
 
 /* Programmée : 0 % */
 .programmee {
-background-color: #6b7280;
+    background-color: #6b7280;
 }
 
 /* En cours : 50 % */
 .en-cours {
-background-color: #f59e0b;
+    background-color: #f59e0b;
 }
 
 /* Achevée : 100 % */
 .achevee {
-background-color: #22c55e;
+    background-color: #22c55e;
+}
+
+/* Bouton et panneau de filtres */
+
+.barre-filtres {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+#bouton-filtres {
+    padding: 8px 16px;
+    background-color: #ece7dc;
+    color: #2f3b3a;
+    border: 1px solid #ddd8ce;
+    border-radius: 6px;
+    font-family: Arial, sans-serif;
+    font-size: 0.95em;
+    cursor: pointer;
+}
+
+.panneau-filtres {
+    display: none;
+    position: absolute;
+    top: 42px;
+    right: 0;
+    z-index: 10;
+    flex-direction: column;
+    gap: 14px;
+    background-color: #fdfcf9;
+    border: 1px solid #ddd8ce;
+    border-radius: 8px;
+    padding: 16px;
+    min-width: 220px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.panneau-filtres.ouvert {
+    display: flex;
+}
+
+.filtre {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.filtre label {
+    font-size: 0.85em;
+    font-weight: bold;
+    color: #2f3b3a;
+}
+
+.filtre select {
+    padding: 6px 10px;
+    border: 1px solid #ddd8ce;
+    border-radius: 6px;
+    background-color: #f1efe9;
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+#aucun-resultat {
+    text-align: center;
+    color: #666;
+    margin-top: 20px;
 }
