@@ -4,42 +4,65 @@
 
 {% block content %}
 
-<h2>Liste des éléments</h2>
+<h2>Liste des éléments</h2> <p> Cette page présente les informations disponibles dans l'application. </p> <div class="liste">
+{% for element in donnees %}
+<article class="carte">
 
-<p>
-    Cette page présente les informations disponibles
-    dans l'application.
-</p>
+    <span class="icone">
+        {% if element.progression == "Programmée" %}
+            📅
+        {% elif element.progression == "En cours" %}
+            🔧
+        {% else %}
+            ✅
+        {% endif %}
+    </span>
 
-<div class="liste">
+    <h3>{{ element.codeOperation }}</h3>
 
-    {% for element in donnees %}
-    <article class="carte">
+    <p><strong>Modèle :</strong> {{ element.cibleTechnique }}</p>
 
-        <span class="icone">
+    <p><strong>Technicien :</strong> {{ element.responsable }}</p>
+
+    <p><strong>État :</strong> {{ element.progression }}</p>
+
+    <!-- Barre de progression -->
+    <div class="progression">
+
+        <div class="progression-info">
+            <span>Avancement</span>
+
             {% if element.progression == "Programmée" %}
-                📅
+                <span>0 %</span>
             {% elif element.progression == "En cours" %}
-                🔧
+                <span>50 %</span>
             {% else %}
-                ✅
+                <span>100 %</span>
             {% endif %}
-                </span>
+        </div>
 
-        <h3>{{ element.codeOperation }}</h3>
+        <div class="progression-barre">
 
-        <p><strong>Modèle :</strong> {{ element.cibleTechnique }}</p>
+            {% if element.progression == "Programmée" %}
+                <div class="progression-remplissage programmee" style="width: 0%;"></div>
 
-        <p><strong>Technicien :</strong> {{ element.responsable }}</p>
+            {% elif element.progression == "En cours" %}
+                <div class="progression-remplissage en-cours" style="width: 50%;"></div>
 
-        <p><strong>État :</strong> {{ element.progression }}</p>
+            {% else %}
+                <div class="progression-remplissage achevee" style="width: 100%;"></div>
+            {% endif %}
 
-        <a href="{{ url_for('detail', id=element.id) }}">
-            Voir le détail
-        </a>
+        </div>
 
-    </article>
-    {% endfor %}
+    </div>
+
+    <a href="{{ url_for('detail', id=element.id) }}">
+        Voir le détail
+    </a>
+
+</article>
+{% endfor %}
 
 </div>
 

@@ -23,16 +23,34 @@
         {{ element.responsable }}
     </p>
 
-    <p>
-        <strong>Progression :</strong>
-        {% if element.progression == "Programmée" %}
-            📅 {{ element.progression }}
-        {% elif element.progression == "En cours" %}
-            🔧 {{ element.progression }}
-        {% else %}
-            ✅ {{ element.progression }}
-        {% endif %}
-    </p>
+<p> <strong>Progression :</strong> {% if element.progression == "Programmée" %} 📅 Programmée {% elif element.progression == "En cours" %} 🔧 En cours {% else %} ✅ Achevée {% endif %} </p> <div class="progression">
+<div class="progression-info">
+    <span>Avancement</span>
+
+    {% if element.progression == "Programmée" %}
+        <span>0 %</span>
+    {% elif element.progression == "En cours" %}
+        <span>50 %</span>
+    {% else %}
+        <span>100 %</span>
+    {% endif %}
+</div>
+
+<div class="progression-barre">
+
+    {% if element.progression == "Programmée" %}
+        <div class="progression-remplissage programmee" style="width: 0%;"></div>
+
+    {% elif element.progression == "En cours" %}
+        <div class="progression-remplissage en-cours" style="width: 50%;"></div>
+
+    {% else %}
+        <div class="progression-remplissage achevee" style="width: 100%;"></div>
+    {% endif %}
+
+</div>
+
+</div>
 
     <p>
         <strong>Rapport :</strong>
