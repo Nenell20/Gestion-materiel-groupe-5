@@ -6,15 +6,18 @@
 "natureAction": "Préventive",
 "progression": "Achevée",
 "responsable": "Thomas",
-"rapportOperation": "Contrôle des journaux et vérification des sauvegardes"
+"rapportOperation": "Contrôle des journaux et vérification des sauvegardes",
+"date": "2026-09-03"
 },
 {
-"id": 2,"codeOperation": "PM-702",
+"id": 2,
+"codeOperation": "PM-702",
 "cibleTechnique": "SW-ACC-04",
 "natureAction": "Corrective",
 "progression": "En cours",
 "responsable": "Laura",
-"rapportOperation": "Remplacement d'un module défectueux"
+"rapportOperation": "Remplacement d'un module défectueux",
+"date": "2026-09-14"
 },
 {
 "id": 3,
@@ -23,7 +26,8 @@
 "natureAction": "Préventive",
 "progression": "Programmée",
 "responsable": "Thomas",
-"rapportOperation": "Nettoyage interne et contrôle du stockage"
+"rapportOperation": "Nettoyage interne et contrôle du stockage",
+"date": "2026-09-22"
 },
 {
 "id": 4,
@@ -32,7 +36,8 @@
 "natureAction": "Corrective",
 "progression": "Achevée",
 "responsable": "Laura",
-"rapportOperation": "Remplacement d'une alimentation"
+"rapportOperation": "Remplacement d'une alimentation",
+"date": "2026-09-05"
 },
 {
 "id": 5,
@@ -41,7 +46,8 @@
 "natureAction": "Préventive",
 "progression": "Programmée",
 "responsable": "Thomas",
-"rapportOperation": "Contrôle de la configuration radio"
+"rapportOperation": "Contrôle de la configuration radio",
+"date": "2026-09-25"
 },
 {
 "id": 6,
@@ -50,7 +56,8 @@
 "natureAction": "Corrective",
 "progression": "En cours",
 "responsable": "Laura",
-"rapportOperation": "Remplacement du support de stockage"
+"rapportOperation": "Remplacement du support de stockage",
+"date": "2026-09-15"
 },
 {
 "id": 7,
@@ -59,16 +66,18 @@
 "natureAction": "Préventive",
 "progression": "Achevée",
 "responsable": "Thomas",
-"rapportOperation": "Sauvegarde de configuration et inspection générale"
+"rapportOperation": "Sauvegarde de configuration et inspection générale",
+"date": "2026-09-08"
 },
 {
-    "id": 8,
+"id": 8,
 "codeOperation": "PM-708",
 "cibleTechnique": "SERVEUR-BDD-01",
 "natureAction": "Corrective",
 "progression": "Programmée",
 "responsable": "Laura",
-"rapportOperation": "Remplacement d'un ventilateur"
+"rapportOperation": "Remplacement d'un ventilateur",
+"date": "2026-09-28"
 },
 {
 "id": 9,
@@ -77,7 +86,8 @@
 "natureAction": "Préventive",
 "progression": "Achevée",
 "responsable": "Thomas",
-"rapportOperation": "Vérification de la couverture sans fil"
+"rapportOperation": "Vérification de la couverture sans fil",
+"date": "2026-09-10"
 },
 {
 "id": 10,
@@ -86,6 +96,7 @@
 "natureAction": "Corrective",
 "progression": "Programmée",
 "responsable": "Laura",
-"rapportOperation": "Remplacement d'un ventilateur bruyant"
+"rapportOperation": "Remplacement d'un ventilateur bruyant",
+"date": "2026-09-30"
 }
 ]

@@ -63,7 +63,8 @@
     data-nature="{{ element.natureAction }}"
     data-progression="{{ element.progression }}"
     data-cible="{{ element.cibleTechnique }}"
-    data-responsable="{{ element.responsable }}">
+    data-responsable="{{ element.responsable }}"
+    data-date="{{ element.date }}">
 
     <span class="icone">
         {% if element.progression == "Programmée" %}
@@ -121,17 +122,22 @@
 </article>
 {% endfor %}
 
+<!-- Carte calendrier : remplie en JavaScript, occupe les emplacements restants de la grille -->
+<article class="carte calendrier-carte" id="calendrier">
+    <!-- généré automatiquement par le script plus bas -->
+</article>
+
 </div>
 
 <p id="aucun-resultat" style="display: none;">Aucun élément ne correspond à ces filtres.</p>
 
-<!-- Script de filtrage propre -->
+<!-- Script de filtrage et de génération du calendrier -->
 <script>
     const filtreNature = document.getElementById('filtre-nature');
     const filtreProgression = document.getElementById('filtre-progression');
     const filtreCible = document.getElementById('filtre-cible');
     const filtreResponsable = document.getElementById('filtre-responsable');
-    const cartes = document.querySelectorAll('.carte');
+    const cartes = document.querySelectorAll('.carte:not(.calendrier-carte)');
     const aucunResultat = document.getElementById('aucun-resultat');
 
     function appliquerFiltres() {
@@ -162,6 +168,92 @@
     filtreProgression.addEventListener('change', appliquerFiltres);
     filtreCible.addEventListener('change', appliquerFiltres);
     filtreResponsable.addEventListener('change', appliquerFiltres);
+
+    // --- Construction du calendrier (100% JavaScript, pas de Python) ---
+    (function construireCalendrier() {
+        const conteneur = document.getElementById('calendrier');
+
+        // On regroupe les interventions par date (AAAA-MM-JJ) à partir de data-date
+        const interventionsParDate = {};
+        cartes.forEach(function (carte) {
+            const date = carte.dataset.date;
+            if (!date) return;
+            if (!interventionsParDate[date]) {
+                interventionsParDate[date] = [];
+            }
+            interventionsParDate[date].push({
+                code: carte.querySelector('h3').textContent.trim(),
+                cible: carte.dataset.cible,
+                progression: carte.dataset.progression
+            });
+        });
+
+        const aujourdHui = new Date();
+        const annee = aujourdHui.getFullYear();
+        const mois = aujourdHui.getMonth(); // 0 = janvier
+
+        const nomsMois = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
+            "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+
+        const premierJour = new Date(annee, mois, 1);
+        const nbJours = new Date(annee, mois + 1, 0).getDate();
+
+        // getDay() : 0 = dimanche -> on veut une semaine qui commence le lundi
+        let decalage = premierJour.getDay() - 1;
+        if (decalage < 0) decalage = 6;
+
+        let html = '<h3>📅 Calendrier — ' + nomsMois[mois] + ' ' + annee + '</h3>';
+        html += '<table class="calendrier"><thead><tr>';
+        ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'].forEach(function (jour) {
+            html += '<th>' + jour + '</th>';
+        });
+        html += '</tr></thead><tbody><tr>';
+
+        for (let i = 0; i < decalage; i++) {
+            html += '<td class="jour-calendrier vide"></td>';
+        }
+
+        let colonne = decalage;
+        for (let jour = 1; jour <= nbJours; jour++) {
+            const dateStr = annee + '-' + String(mois + 1).padStart(2, '0') + '-' + String(jour).padStart(2, '0');
+            const interventions = interventionsParDate[dateStr] || [];
+            const classeJour = interventions.length ? 'a-des-interventions' : '';
+
+            html += '<td class="jour-calendrier ' + classeJour + '"><span class="numero-jour">' + jour + '</span>';
+
+            interventions.forEach(function (intervention) {
+                let classeProgression = 'achevee';
+                if (intervention.progression === 'Programmée') classeProgression = 'programmee';
+                else if (intervention.progression === 'En cours') classeProgression = 'en-cours';
+
+                const titre = intervention.code + ' — ' + intervention.cible + ' (' + intervention.progression + ')';
+                html += '<span class="point-intervention ' + classeProgression + '" title="' + titre + '"></span>';
+            });
+
+            html += '</td>';
+
+            colonne++;
+            if (colonne % 7 === 0 && jour !== nbJours) {
+                html += '</tr><tr>';
+            }
+        }
+
+        const resteColonnes = colonne % 7;
+        if (resteColonnes !== 0) {
+            for (let i = resteColonnes; i < 7; i++) {
+                html += '<td class="jour-calendrier vide"></td>';
+            }
+        }
+
+        html += '</tr></tbody></table>';
+        html += '<div class="legende-calendrier">' +
+            '<span><i class="point-intervention programmee"></i> Programmée</span>' +
+            '<span><i class="point-intervention en-cours"></i> En cours</span>' +
+            '<span><i class="point-intervention achevee"></i> Achevée</span>' +
+            '</div>';
+
+        conteneur.innerHTML = html;
+    })();
 </script>
 
 {% endblock %}
