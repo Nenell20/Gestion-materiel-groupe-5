@@ -76,7 +76,6 @@ Fonctionnalités développées dans l'application :
 Cloner le dépôt puis installer les dépendances Python :
 
 ```bash
-git clone https://github.com/Nenell20/Gestion-materiel-groupe-5.git
 cd Gestion-materiel-groupe-5
 pip install -r requirements.txt
 ```
@@ -113,25 +112,19 @@ L'application est ensuite accessible depuis un navigateur à l'adresse indiquée
 
 | Membre           | Rôle principal                                              |
 |-------------------|---------------------------------------------------------------|
-| Yannis HEBERT      | *(à préciser : ex. Back-end / logique Flask)*                 |
-| Mathis RICARD      | *(à préciser : ex. Front-end / mise en forme CSS)*             |
-| Naël MIGNET        | *(à préciser : ex. Données / tests / documentation)*           |
+| Yannis HEBERT      | codage d'une partie json, index.html et css                  |
+| Mathis RICARD      | codage d'une partie json, index.html et css et gant            |
+| Naël MIGNET        | creation et gestion du projet et un peu de codage index.html           |
 
 ---
 
 ## 9. Gestion du projet
 
 ### Issues
-*(Lister ici les principales Issues créées sur le dépôt GitHub, avec leur objectif — ex : "Issue #3 :
-ajouter le filtre par technicien".)*
+![issues](issues.png)
 
 ### GitHub Project / Kanban
-*(Indiquer le lien vers votre tableau GitHub Project et décrire son organisation, ex : colonnes
-"À faire", "En cours", "Terminé".)*
-
-### Planning
-*(Résumer le planning prévisionnel des tâches, par exemple sous forme de tableau ou de liste par
-semaine/séance.)*
+ https://github.com/Nenell20/Gestion-materiel-groupe-5.git
 
 ### Pull Requests
 *(Lister les principales Pull Requests réalisées, avec une courte description, ex : "PR #5 : ajout du
@@ -139,23 +132,7 @@ calendrier des maintenances".)*
 
 ---
 
-## 10. Bilan
-
-### Difficultés rencontrées
-*(À compléter : par exemple gestion des conflits Git, mise en forme du calendrier CSS, etc.)*
-
-### Solutions trouvées
-*(À compléter : comment ces difficultés ont été résolues.)*
-
-### Écarts entre prévision et réalisation
-*(À compléter : fonctionnalités prévues mais non terminées, ou au contraire ajoutées en plus.)*
-
-### Améliorations possibles
-*(À compléter : pistes d'évolution, ex. authentification, export des rapports, notifications.)*
-
----
-
-## 11. Publication du projet
+## 10. Publication du projet
 
 ### Étapes de publication initiale :
 
