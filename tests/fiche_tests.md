@@ -39,3 +39,30 @@
 ## Valideurs
 
 - **Testeur** : Naël & Yannis & Mathis  
+
+## Comparer ce qui était prévu et ce qui à été fait :
+
+* Le planning initial a-t-il été respecté ? 
+
+ Oui mis à part la création du répertoire GitHub, les issues et projet qui ont pris plus de temps que prévu.
+* Quelles tâches ont pris plus de temps ? 
+
+Création du répertoire GitHub et Développement du calendrier css.
+* Quelles tâches ont été plus rapides ?
+
+ L'affichage des data.json en claur sur le site.
+* Des tâches ont-elles été ajoutées ? 
+
+Oui l'ajout de nouvelles données dans data.json pour le calendrier.
+* Des tâches ont-elles été supprimées ou modifiées ? 
+
+Oui, Yannis s'est occupé du calendrier css qui était destinée à la base a Mathis.
+* Pourquoi ?
+
+A cause d'un retard.
+* Le Gantt était-il réaliste ? 
+
+Oui, il est globalement satisfaisant par rapport à ce qui a été réalisé.
+* Qu’avez-vous appris sur la planification ? 
+
+C'est une tâche complexe et qui demande de l'attention. Seulement quand c'est bien réalisé ça limite l'impact des problèmes, donc c'est important.
