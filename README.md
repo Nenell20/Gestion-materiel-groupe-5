@@ -3,7 +3,8 @@
 ![JSON](https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=json&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-# Compte Rendu - TP3: Gestion Materiel Groupe 5*
+
+# Compte Rendu - TP3 : Gestion Matériel Groupe 5
 
 ## 1. Identification
 
@@ -14,34 +15,162 @@
 
 ---
 
-## 2. Origin
+## 2. Présentation
+
+### Rôle de l'application
+
+Ce projet répond au **Sujet 5 : Suivi de la maintenance des équipements**.
+
+Le service informatique de l'entreprise souhaite pouvoir suivre les opérations de maintenance
+(préventive et corrective) réalisées sur les équipements de son parc. L'application, développée en
+Python (Flask), permet de :
+
+- consulter la liste des opérations de maintenance enregistrées ;
+- afficher le détail de chaque opération (équipement concerné, technicien responsable, rapport
+  d'intervention, etc.) ;
+- visualiser rapidement l'état d'avancement de chaque maintenance ;
+- filtrer et trier les opérations selon plusieurs critères.
 
 ### Rôle de `origin` dans `git remote add origin URL_DU_DEPOT`
-Dans cette commande, **`origin`** est le nom de raccourci attribué par convention à l'adresse du dépôt distant sur GitHub. Cela évite d'avoir à ressaisir l'URL complète à chaque fois qu'on souhaite interagir avec le serveur distant (ex: `git push origin main`).
+
+Dans cette commande, **`origin`** est le nom de raccourci attribué par convention à l'adresse du dépôt
+distant sur GitHub. Cela évite d'avoir à ressaisir l'URL complète à chaque fois qu'on souhaite interagir
+avec le serveur distant (ex : `git push origin main`).
 
 ---
 
-## 3. Les principales commandes
+## 3. Les principales commandes Git
 
-- **`git init`** : Initialise un nouveau dépôt Git local dans le dossier courant en créant le sous-dossier masqué `.git`.
-- **`git add`** : Ajoute des modifications ou de nouveaux fichiers à la zone d'index (*staging area*) pour les préparer au prochain commit.
-- **`git commit`** : Enregistre l'état actuel des fichiers indexés dans l'historique du dépôt local avec un message explicatif.
+- **`git init`** : Initialise un nouveau dépôt Git local dans le dossier courant en créant le sous-dossier
+  masqué `.git`.
+- **`git add`** : Ajoute des modifications ou de nouveaux fichiers à la zone d'index (*staging area*)
+  pour les préparer au prochain commit.
+- **`git commit`** : Enregistre l'état actuel des fichiers indexés dans l'historique du dépôt local avec
+  un message explicatif.
 - **`git push`** : Envoie les commits enregistrés localement vers le dépôt distant (sur GitHub).
-- **`git pull`** : Récupère les dernières modifications depuis le dépôt distant et les fusionne directement dans la branche locale active.
-- **`git clone`** : Télécharge une copie complète d'un dépôt distant (code, branches et tout l'historique des commits) sur sa machine locale.
+- **`git pull`** : Récupère les dernières modifications depuis le dépôt distant et les fusionne
+  directement dans la branche locale active.
+- **`git clone`** : Télécharge une copie complète d'un dépôt distant (code, branches et tout
+  l'historique des commits) sur sa machine locale.
 
 ---
 
-## 4. Publication du projet
+## 4. Fonctionnalités
+
+Fonctionnalités développées dans l'application :
+
+- [x] Affichage de la liste des opérations de maintenance
+- [x] Affichage du détail d'une opération (équipement concerné, responsable, rapport)
+- [x] Distinction visuelle des maintenances **planifiées** (icône calendrier) et **en cours**
+      (icône clé à molette)
+- [x] Barre de progression visuelle correspondant à l'avancement de chaque opération
+- [x] Calendrier simple permettant de visualiser les maintenances planifiées
+- [x] Filtres par nature de l'action, progression, cible technique et responsable
+- [x] Mise en forme avec CSS (`static/`)
+- [ ] *(cochez/complétez selon ce qui a réellement été fait par votre groupe)*
+
+---
+
+## 5. Installation
+
+Cloner le dépôt puis installer les dépendances Python :
+
+```bash
+git clone https://github.com/Nenell20/Gestion-materiel-groupe-5.git
+cd Gestion-materiel-groupe-5
+pip install -r requirements.txt
+```
+
+---
+
+## 6. Lancement
+
+```bash
+python app.py
+```
+
+L'application est ensuite accessible depuis un navigateur à l'adresse indiquée dans le terminal
+(généralement `http://127.0.0.1:5000`).
+
+---
+
+## 7. Organisation du projet
+
+| Fichier / Dossier    | Rôle                                                                 |
+|-----------------------|----------------------------------------------------------------------|
+| `app.py`              | Point d'entrée de l'application Flask, définit les routes            |
+| `data/`               | Contient les données au format JSON (opérations de maintenance)      |
+| `templates/`          | Pages HTML (Jinja2) affichées par l'application                      |
+| `static/`             | Feuilles de style CSS, scripts JS et ressources statiques            |
+| `tests/`               | Fiches et scripts de tests de l'application                          |
+| `requirements.txt`    | Liste des dépendances Python nécessaires au projet                   |
+| `.gitignore`          | Fichiers/dossiers exclus du suivi Git (ex : environnement virtuel)   |
+| `README.md`           | Documentation du projet                                              |
+
+---
+
+## 8. Membres
+
+| Membre           | Rôle principal                                              |
+|-------------------|---------------------------------------------------------------|
+| Yannis HEBERT      | *(à préciser : ex. Back-end / logique Flask)*                 |
+| Mathis RICARD      | *(à préciser : ex. Front-end / mise en forme CSS)*             |
+| Naël MIGNET        | *(à préciser : ex. Données / tests / documentation)*           |
+
+---
+
+## 9. Gestion du projet
+
+### Issues
+*(Lister ici les principales Issues créées sur le dépôt GitHub, avec leur objectif — ex : "Issue #3 :
+ajouter le filtre par technicien".)*
+
+### GitHub Project / Kanban
+*(Indiquer le lien vers votre tableau GitHub Project et décrire son organisation, ex : colonnes
+"À faire", "En cours", "Terminé".)*
+
+### Planning
+*(Résumer le planning prévisionnel des tâches, par exemple sous forme de tableau ou de liste par
+semaine/séance.)*
+
+### Pull Requests
+*(Lister les principales Pull Requests réalisées, avec une courte description, ex : "PR #5 : ajout du
+calendrier des maintenances".)*
+
+---
+
+## 10. Bilan
+
+### Difficultés rencontrées
+*(À compléter : par exemple gestion des conflits Git, mise en forme du calendrier CSS, etc.)*
+
+### Solutions trouvées
+*(À compléter : comment ces difficultés ont été résolues.)*
+
+### Écarts entre prévision et réalisation
+*(À compléter : fonctionnalités prévues mais non terminées, ou au contraire ajoutées en plus.)*
+
+### Améliorations possibles
+*(À compléter : pistes d'évolution, ex. authentification, export des rapports, notifications.)*
+
+---
+
+## 11. Publication du projet
 
 ### Étapes de publication initiale :
-1. **Création du dépôt local :** Dans le dossier du projet contenant les fichiers (`index.html`, `style.css`, etc.), le dépôt Git local a été initialisé via la commande `git init`. Les fichiers ont ensuite été indexés (`git add .`) puis validés (`git commit -m "Initial commit"`).
-2. **Association du dépôt distant :** Après avoir créé un dépôt vide nommé `Gestion-materiel-groupe-5` sur GitHub, il a été lié au dépôt local avec la commande :
+
+1. **Création du dépôt local :** Dans le dossier du projet contenant les fichiers (`app.py`, `templates/`,
+   `static/`, etc.), le dépôt Git local a été initialisé via la commande `git init`. Les fichiers ont
+   ensuite été indexés (`git add .`) puis validés (`git commit -m "Initial commit"`).
+2. **Association du dépôt distant :** Après avoir créé un dépôt vide nommé `Gestion-materiel-groupe-5`
+   sur GitHub, il a été lié au dépôt local avec la commande :
    ```bash
    git remote add origin https://github.com/Nenell20/Gestion-materiel-groupe-5.git
-3. **Ajout des collaborateurs** dans le dossier Github partagé, et les droit d'administrateur.
-4. **Choix du projet** et répartition des rôles et activités que chacun devras faire.
+   ```
+3. **Ajout des collaborateurs** dans le dossier GitHub partagé, et des droits d'administrateur.
+4. **Choix du projet** et répartition des rôles et activités que chacun devait faire.
 5. **Travail en autonomie** sur nos tâches respectives.
-6. **Partage** de nos résultat en faisant un dossier partager sur ``VisualStudioCode``, pour être plus productif.
-7. **Finalisation** en équipe et vérifications
-8. **Publication finale du projet**
+6. **Partage** de nos résultats en faisant un dossier partagé sur `Visual Studio Code`, pour être plus
+   productifs.
+7. **Finalisation** en équipe et vérifications.
+8. **Publication finale du projet**.
