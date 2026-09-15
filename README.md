@@ -67,7 +67,6 @@ Fonctionnalités développées dans l'application :
 - [x] Calendrier simple permettant de visualiser les maintenances planifiées
 - [x] Filtres par nature de l'action, progression, cible technique et responsable
 - [x] Mise en forme avec CSS (`static/`)
-- [ ] *(cochez/complétez selon ce qui a réellement été fait par votre groupe)*
 
 ---
 
