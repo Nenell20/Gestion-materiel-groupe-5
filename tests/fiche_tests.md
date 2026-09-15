@@ -1,6 +1,6 @@
 # Fiche de Tests
 
-## 📋 Informations Générales
+## Informations Générales
 
 | Champ | Valeur |
 | :--- | :--- |
@@ -12,7 +12,7 @@
 
 ---
 
-## 📊 Résumé des Tests
+## Résumé des Tests
 
 - **Total des tests** : 5
 - **Succès** : 5
@@ -21,7 +21,7 @@
 
 ---
 
-## 🧪 Tableau des Tests
+## Tableau des Tests
 
 | N° | Titre / Action | Résultat Attendu | Résultat Obtenu | Statut | Remarques |
 | :---: | :--- | :--- | :--- | :---: | :--- |
@@ -36,6 +36,6 @@
 ---
 
 
-## ✍️ Valideurs
+## Valideurs
 
 - **Testeur** : Naël & Yannis & Mathis  
